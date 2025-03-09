@@ -1,0 +1,90 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Booking Details - {{ booking.guest_name }} - Maayo Hotel{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2 class="card-title mb-0">Booking Details</h2>
+                    <div class="btn-group">
+                        <a href="{% url 'bookings:booking_update' booking.pk %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-pencil"></i> Edit
+                        </a>
+                        <a href="{% url 'bookings:booking_delete' booking.pk %}" class="btn btn-outline-danger">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Guest Name:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ booking.guest_name }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Guest Email:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="mailto:{{ booking.guest_email }}">{{ booking.guest_email }}</a>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Room:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        <a href="{% url 'bookings:room_detail' booking.room.pk %}">
+                            Room {{ booking.room.room_number }} ({{ booking.room.get_room_type_display }})
+                        </a>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Check-in Date:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ booking.check_in }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Check-out Date:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ booking.check_out }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Booking Created:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        {{ booking.created_at|date:"F d, Y H:i" }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <strong>Total Price:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        ${{ booking.room.price }}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'bookings:booking_list' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Bookings
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

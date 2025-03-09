@@ -1,0 +1,36 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Delete Room {{ room.room_number }} - Maayo Hotel{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title mb-0">Delete Room</h2>
+            </div>
+            <div class="card-body">
+                <p class="alert alert-danger">
+                    Are you sure you want to delete Room {{ room.room_number }}?
+                    {% if room.bookings.exists %}
+                        <br><br>
+                        <strong>Warning:</strong> This room has existing bookings. Deleting it will also delete all associated bookings.
+                    {% endif %}
+                </p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'bookings:room_detail' room.pk %}" class="btn btn-secondary me-md-2">
+                            <i class="bi bi-x-lg"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Delete Room
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
