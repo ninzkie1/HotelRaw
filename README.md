@@ -1,6 +1,7 @@
 # MaayoHotel
-<h2>🎥 Demo Video</h2>
-<iframe width="560" height="315" src="[https://www.youtube.com/embed/YOUTUBE_VIDEO_ID](https://www.youtube.com/watch?v=_8_zNgBAV7E)" frameborder="0" allowfullscreen></iframe>
+## 🎥 Demo Video  
+[![Watch the Demo](https://img.youtube.com/vi/_8_zNgBAV7E/maxresdefault.jpg)](https://www.youtube.com/watch?v=_8_zNgBAV7E)  
+🔗 **Click the image to watch the demo video on YouTube!**  
 
 ## About
 MaayoHotel is a Django-based web application designed to Book an Online Booking Management System for Maayo Hotel.
