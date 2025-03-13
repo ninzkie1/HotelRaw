@@ -18,7 +18,7 @@
                 <h5 class="card-title">Room {{ room.room_number }}</h5>
                 <p class="card-text">
                     <strong>Type:</strong> {{ room.get_room_type_display }}<br>
-                    <strong>Price:</strong> ${{ room.price }}<br>
+                    <strong>Price:</strong> ₱{{ room.price }}<br>
                     <strong>Status:</strong>
                     {% if room.is_available %}
                         <span class="badge bg-success">Available</span>
